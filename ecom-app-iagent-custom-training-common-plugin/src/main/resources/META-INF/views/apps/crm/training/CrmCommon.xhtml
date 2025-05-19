@@ -10,14 +10,16 @@
       xmlns:nmc="http://java.sun.com/jsf/composite/common/composites"
       xmlns:fn="http://novomind.com/ecom/functions">
 <f:view encoding="UTF-8" contentType="text/html">
+
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <h:outputStylesheet name="css/apps/crm/training/trainingcommon.css" />
         <nmc:jsapi />
     </h:head>
+
     <h:body>
-        <h:h1>CRM Case Form</h:h1>
-        <h:form id="crmForm" enctype="multipart/form-data">
+        <h:outputText value="CRM Case Form" />
+        <h:form id="crmForm">
 
             <h:messages id="message" infoStyle="color:blue"
                         warnStyle="color:orange" errorStyle="color:red" />
@@ -26,7 +28,7 @@
 
                 <h:outputLabel for="name" value="Name:" />
                 <h:inputText id="name"
-                             value=""
+                             value="#{vsb.get('CrmTabBean').name}"
                              required="true"
                              requiredMessage="Mandatory field not filled: Name"
                              styleClass="#{component.valid ? 'input-text' : 'input-text-invalid'}"
@@ -34,7 +36,7 @@
 
                 <h:outputLabel for="number" value="Number:" />
                 <h:inputText id="number"
-                             value=""
+                             value="#{vsb.get('CrmTabBean').number}"
                              required="true"
                              requiredMessage="Mandatory field not filled: Number"
                              styleClass="#{component.valid ? 'input-text' : 'input-text-invalid'}"
@@ -42,7 +44,7 @@
 
                 <h:outputLabel for="email" value="Email:" />
                 <h:inputText id="email"
-                             value=""
+                             value="#{vsb.get('CrmTabBean').email}"
                              required="true"
                              requiredMessage="Mandatory field not filled: Email"
                              styleClass="#{component.valid ? 'input-text' : 'input-text-invalid'}"
@@ -50,7 +52,7 @@
 
                 <h:outputLabel for="caseType" value="Case Type:" />
                 <h:inputText id="caseType"
-                             value=""
+                             value="#{vsb.get('CrmTabBean').caseType}"
                              required="true"
                              requiredMessage="Mandatory field not filled: Case Type"
                              styleClass="#{component.valid ? 'input-text' : 'input-text-invalid'}"
@@ -58,7 +60,7 @@
 
                 <f:facet name="footer">
                     <p:commandButton value="Submit CRM Case"
-                                     action="#{crmBean.linkCase}"
+                                     action="#{vsb.get('CrmTabBean').crmLink}"
                                      update="@form"
                                      icon="pi pi-check" />
 

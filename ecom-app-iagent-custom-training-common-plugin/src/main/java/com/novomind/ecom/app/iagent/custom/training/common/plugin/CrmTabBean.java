@@ -25,6 +25,25 @@ import com.novomind.ecom.app.iagent.custom.training.shared.CrmConstants;
 @CustomManagedBean("CrmTabBean")
 public class CrmTabBean implements CustomBean {
 
+    private String name;
+    private String number;
+    private String email;
+    private String caseType;
+
+    // Getters and setters
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getNumber() { return number; }
+    public void setNumber(String number) { this.number = number; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getCaseType() { return caseType; }
+    public void setCaseType(String caseType) { this.caseType = caseType; }
+
+
     private String CRM_URL;
     private String CRM_AUTH;
     private String BASE_CONTACT_URL;
