@@ -1,0 +1,70 @@
+plugins {
+  id "com.jfrog.artifactory" version "4.25.0"
+}
+
+apply plugin: 'java'
+  
+wrapper {
+  gradleVersion = '7.2'
+}
+
+def buildTime = new java.util.Date()
+
+def currentJvm = org.gradle.internal.jvm.Jvm.current()
+println 'Java version: ' + currentJvm
+
+version = project[project.name]
+
+allprojects {
+  apply plugin: 'eclipse'
+
+  group = 'com.novomind.ecom'
+
+  tasks.eclipseProject {
+    doFirst {
+      File f = file('/.settings/org.eclipse.core.resources.prefs')
+      f.write('eclipse.preferences.version=1\n')
+      f.append('encoding/<project>=UTF-8')
+    }
+  }
+
+  tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+  }
+
+  // Artefacte mit changing = true nicht cachen, default = 24h
+  configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+  }
+  
+  jar {
+    manifest {
+      attributes \
+        'Created-By': System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')', \
+        'Built-On': buildTime.format("yyyyMMdd HHmmss"), \
+        'Built-By': System.getProperty('user.name'), \
+        'Specification-Title': project.name, \
+        'Specification-Version': rootProject.version, \
+        'Specification-Vendor': 'novomind AG'
+    }
+  }
+}
+
+subprojects {
+  apply plugin: 'java'
+  
+  apply from: "$rootProject.projectDir/embed.gradle"
+  
+  version = rootProject.version
+  sourceCompatibility = project['java-version']
+  
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+      url 'https://open-repo.novomind.com/artifactory/libs-release'
+    }
+  }
+}
+
+apply from: 'appContainer.gradle'

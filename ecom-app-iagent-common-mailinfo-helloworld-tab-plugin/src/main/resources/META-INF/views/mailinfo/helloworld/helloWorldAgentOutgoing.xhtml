@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:pe="http://primefaces.org/ui/extensions" 
+      xmlns:nm="http://java.sun.com/jsf/composite/composites" 
+      xmlns:nmc="http://java.sun.com/jsf/composite/common/composites"
+      xmlns:fn="http://novomind.com/ecom/functions">
+  <f:view encoding="UTF-8" contentType="text/html">
+  <h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <h:outputStylesheet name="css/mailinfo/helloWorld/helloWorld.css" /> 
+    <nmc:jsapi />
+  </h:head>
+  <h:body>  
+    <p>Agent Sent</p>
+    <hr />
+    <h:panelGroup layout="block" styleClass="helloWorldMailInfoTab">
+      <h:outputText value="#{vsb.get('HelloWorldAgentFolderMailInfoTabBean').incomingMessageSubject}" />
+    </h:panelGroup>
+    <h:panelGroup layout="block" styleClass="helloWorldMailInfoTab">
+      <h:outputText value="#{vsb.get('HelloWorldAgentFolderMailInfoTabBean').agentOutgoingMessageSubject}" />
+    </h:panelGroup>
+  </h:body>
+  </f:view>
+</html>

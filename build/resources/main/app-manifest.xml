@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.novomind.com/schema/app" xmlns:appstore="http://www.novomind.com/schema/appstore" xmlns:ecom="http://www.novomind.com/schema/metadata" xsi:schemaLocation="http://www.novomind.com/schema/app https://apps.novomind.com/schemas/manifest-schema/manifest-schema.xsd http://www.novomind.com/schema/appstore https://apps.novomind.com/schemas/appstore-schema/appstore-schema.xsd http://www.novomind.com/schema/metadata https://apps.novomind.com/schemas/ecom-metadata-schema/ecom-metadata-schema.xsd">
+
+  <groupId>com.novomind.ecom</groupId>
+  <appId>ecom-app-iagent-custom-training</appId>
+  <name>CTI App Developement Test</name>
+  
+  <version>1.0</version>
+  <supportedVersion>
+    <minimum>12.0.0</minimum>
+  </supportedVersion>
+  <product>iagent</product>
+  
+  <descriptions>
+    <description locale="en">This App is for learning CTI App Development.</description>
+    <description locale="de">Diese App ist fur lernen die CTI App-Entwicklung.</description>
+  </descriptions>
+  
+  <vendor>novomind AG</vendor>
+  
+  <icon>META-INF/manifest-resources/icon.png</icon>
+
+  <download>false</download>
+  <email>apps@novomind.com</email>
+  <phone>+49408080710</phone>
+
+</app>

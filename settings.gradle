@@ -1,0 +1,8 @@
+rootProject.name = 'ecom-app-iagent-custom-training'
+
+include 'ecom-app-iagent-common-mailinfo-helloworld-tab-plugin'
+include 'ecom-app-iagent-custom-training-core-plugin'
+include 'ecom-app-iagent-custom-training-common-plugin'
+include 'ecom-app-iagent-custom-training-shared'
+include 'test'
+

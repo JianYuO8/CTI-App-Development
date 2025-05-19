@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Created-By: 11.0.24 (OpenLogic)
+Built-On: 20250516 101821
+Built-By: Alcan Lim
+Specification-Title: ecom-app-iagent-custom-training
+Specification-Version: 1.0
+Specification-Vendor: novomind AG
+

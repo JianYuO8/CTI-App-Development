@@ -1,0 +1,25 @@
+plugins {
+    id "biz.aQute.bnd.builder" version "5.3.0"
+}
+
+dependencies {
+    embedImplementation ('org.json:json:20220320')
+    implementation group: 'org.apache.felix', name: 'org.apache.felix.framework', version: project['apche.felix.framework']
+    implementation group: 'jakarta.annotation', name: 'jakarta.annotation-api',  version: project['jakarta.annotation']
+    implementation(group:'javax.mail',name: 'mail', version: project['javax.mail']) {
+        exclude group: 'javax.activation', module: 'activation'
+    }
+    implementation ('org.slf4j:slf4j-api:' + project['slf4j'])
+    implementation group: 'jakarta.inject', name: 'jakarta.inject-api', version: project['jakarta.inject']
+    implementation group: 'com.novomind.ecom', name: 'ecom-api-iagent', version: project['minimum-iagent-version']
+    embedImplementation 'org.apache.commons:commons-lang3:' + project['commons-lang']
+}
+
+jar {
+    bnd(
+            'Bundle-ClassPath': bundleClassPath(),
+            '-includeresource': includeResourceCopy(),
+            '-removeheaders': 'Include-Resource',
+            '-fixupmessages': 'Classes found in the wrong directory'
+    )
+}

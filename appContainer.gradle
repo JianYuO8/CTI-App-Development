@@ -1,0 +1,29 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+jar {
+  into ('dist/routing') {
+    from project(":ecom-app-iagent-common-mailinfo-helloworld-tab-plugin").jar
+    from project(':ecom-app-iagent-custom-training-common-plugin').jar
+  }
+
+  into ('dist/agent') {
+    from project(":ecom-app-iagent-common-mailinfo-helloworld-tab-plugin").jar
+    from project(':ecom-app-iagent-custom-training-common-plugin').jar
+  }
+
+  into ('dist/core') {
+    from project(':ecom-app-iagent-custom-training-core-plugin').jar
+  }
+
+  into ('dist/chat') {
+    from project(':ecom-app-iagent-custom-training-common-plugin').jar
+  }
+  
+  processResources {
+    from('src/main/resources') {
+      duplicatesStrategy = DuplicatesStrategy.INCLUDE
+      include 'app-manifest.xml'
+      filter(ReplaceTokens, tokens: ['group' : project.group, 'appId' : project.name, 'version' : '' + project.version, 'minimum-iagent-version' : '' + project['minimum-iagent-version']])
+    }
+  }
+}

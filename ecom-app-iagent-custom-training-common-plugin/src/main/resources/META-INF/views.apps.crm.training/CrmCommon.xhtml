@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:nm="http://java.sun.com/jsf/composite/composites"
+      xmlns:nmc="http://java.sun.com/jsf/composite/common/composites"
+      xmlns:fn="http://novomind.com/ecom/functions">
+<f:view encoding="UTF-8" contentType="text/html">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <h:outputStylesheet name="css/apps/crm/training/trainingcommon.css" />
+        <nmc:jsapi />
+    </h:head>
+    <h:body>
+        <h:h1>CRM Case Form</h:h1>
+        <h:form id="crmForm" enctype="multipart/form-data">
+
+            <h:messages id="message" infoStyle="color:blue"
+                        warnStyle="color:orange" errorStyle="color:red" />
+
+            <h:panelGrid columns="2" cellpadding="5" styleClass="no-borders">
+
+                <h:outputLabel for="name" value="Name:" />
+                <h:inputText id="name"
+                             value=""
+                             required="true"
+                             requiredMessage="Mandatory field not filled: Name"
+                             styleClass="#{component.valid ? 'input-text' : 'input-text-invalid'}"
+                             label="Name" />
+
+                <h:outputLabel for="number" value="Number:" />
+                <h:inputText id="number"
+                             value=""
+                             required="true"
+                             requiredMessage="Mandatory field not filled: Number"
+                             styleClass="#{component.valid ? 'input-text' : 'input-text-invalid'}"
+                             label="Number" />
+
+                <h:outputLabel for="email" value="Email:" />
+                <h:inputText id="email"
+                             value=""
+                             required="true"
+                             requiredMessage="Mandatory field not filled: Email"
+                             styleClass="#{component.valid ? 'input-text' : 'input-text-invalid'}"
+                             label="Email" />
+
+                <h:outputLabel for="caseType" value="Case Type:" />
+                <h:inputText id="caseType"
+                             value=""
+                             required="true"
+                             requiredMessage="Mandatory field not filled: Case Type"
+                             styleClass="#{component.valid ? 'input-text' : 'input-text-invalid'}"
+                             label="Case Type" />
+
+                <f:facet name="footer">
+                    <p:commandButton value="Submit CRM Case"
+                                     action="#{crmBean.linkCase}"
+                                     update="@form"
+                                     icon="pi pi-check" />
+
+                    <p:commandButton value="Clear Form"
+                                     type="reset"
+                                     icon="pi pi-times"
+                                     styleClass="ui-button-secondary" />
+                </f:facet>
+
+            </h:panelGrid>
+
+        </h:form>
+    </h:body>
+</f:view>
+</html>

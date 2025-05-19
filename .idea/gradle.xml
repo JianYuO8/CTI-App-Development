@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="11" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ecom-app-iagent-common-mailinfo-helloworld-tab-plugin" />
+            <option value="$PROJECT_DIR$/ecom-app-iagent-custom-training-common-plugin" />
+            <option value="$PROJECT_DIR$/ecom-app-iagent-custom-training-core-plugin" />
+            <option value="$PROJECT_DIR$/ecom-app-iagent-custom-training-shared" />
+            <option value="$PROJECT_DIR$/test" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
